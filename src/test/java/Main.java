@@ -9,6 +9,8 @@ public class Main {
 
     @Test
     public void start() throws Exception{
+
+        //测试入口
         Receiver.startClient();
 
     }
