@@ -15,7 +15,7 @@ jar {
     manifest {
         attributes(
                 "Manifest-Version": 1.0,
-                "Main-Class": "com.dullwolf.App")
+                "Main-Class": "bot.dullwolf.App")
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     into('assets') {
