@@ -13,7 +13,13 @@ tasks.withType(JavaCompile) {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'com.dullwolf.App'
+        attributes(
+                "Manifest-Version": 1.0,
+                "Main-Class": "com.dullwolf.App")
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    into('assets') {
+        from 'assets'
     }
 }
 
