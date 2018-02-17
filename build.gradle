@@ -1,4 +1,18 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
 apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 
 group = 'bot.dullwolf'
 version = '0.0.1-SNAPSHOT'
@@ -9,19 +23,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
-}
-
-task run(type: JavaExec, dependsOn: 'classes') {
-    description '运行指定main函数的java'
-    classpath = sourceSets.main.runtimeClasspath
-    if(project.hasProperty('main')){
-        main = "bot.dullwolf.${project.getProperty('main')}"
-    }
-}
-
-task init << {
-    sourceSets*.java.srcDirs*.each { it.mkdirs() }
-    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
 }
 
 jar {
