@@ -1,7 +1,7 @@
 package dp.oppai;
 
 
-import com.dullwolf.common.utils.CmdUtil;
+import bot.dullwolf.common.utils.CmdUtil;
 
 import java.io.*;
 import java.net.HttpURLConnection;
